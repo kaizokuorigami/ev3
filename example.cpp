@@ -111,6 +111,7 @@ public:
     void example_code();
 };
 
+
 void Crain::example_code()
 { //This function is for example, you should develop your own logics
     set_down(ev3dev::button::down.pressed());
