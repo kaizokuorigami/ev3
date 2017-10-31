@@ -12,7 +12,7 @@ private:
     
 public:
     // Hardware Configuration
-    Crain():m_speed(0), touch_q(ev3dev::INPUT_2), a(ev3dev::OUTPUT_B), b(ev3dev::OUTPUT_C), c(ev3dev::OUTPUT_A), ultra_q(ev3dev::INPUT_3)
+    Crain():m_speed(0), touch_q(ev3dev::INPUT_2), a(ev3dev::OUTPUT_B), b(ev3dev::OUTPUT_C), c(ev3dev::OUTPUT_D), ultra_q(ev3dev::INPUT_3)
     {
         
     }
@@ -76,7 +76,7 @@ public:
     
     virtual int c_get_position_sp()
     {
-        return 30;
+        return 50;
     }
     
     virtual void set_down(bool val)
@@ -143,7 +143,7 @@ void Crain::example_code()
         else
         {
             b.set_speed_sp(get_speed());
-            b.set_position_sp(-1*dist);
+            b.set_position_sp(dist);
             b.run_to_abs_pos();
             b.set_stop_action("hold");
             b.stop();
@@ -156,7 +156,7 @@ void Crain::example_code()
     {
         std::cout<<"b"<<std::endl;
         a.set_speed_sp(get_speed());
-        a.set_position_sp(-1*a_get_position_sp());
+        a.set_position_sp(a_get_position_sp());
         a.run_to_abs_pos();
         a.set_stop_action("hold");
         a.stop();
@@ -165,17 +165,19 @@ void Crain::example_code()
     
     c.reset();
     
-    while( (abs(c.position()) >= 20)  || (abs(c.position()) <= 40) )
+    std::cout<<c.position()<<std::endl;
+    
+    while( (abs(c.position()) <= 30)  || (abs(c.position()) >= 70) )
     {
         std::cout<<"x"<<std::endl;
         c.set_speed_sp(get_speed());
-        c.set_position_sp(-1*c_get_position_sp());
+        c.set_position_sp(50);
         c.run_to_abs_pos();
         c.set_stop_action("hold");
         c.stop();
+        std::cout<<c.position()<<std::endl;
         std::cout<<"y"<<std::endl;
     }
-    
     
     
     /*
