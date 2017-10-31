@@ -115,17 +115,17 @@ public:
     
 public:
     void example_code();
+    
     void left_right(int sp);
     void up_down(int sp);
-    //void open_close(int sp);
-
+    void open_close(int sp);
 };
 
 
 
 void Crain::example_code()
 {
-    Crain crain;
+    
     a.reset();
     b.reset();
     c.reset();
@@ -136,7 +136,7 @@ void Crain::example_code()
     //"""FIRST SCAN"""
     //"""stop when an object is detected"""
     
-    while((abs(b.position()) < 350) && (count == 0))
+    while((abs(b.position()) < 450) && (count == 0))
     {
         dist++;
         if((ultra_q.distance_centimeters() > 0) && (ultra_q.distance_centimeters() < 10))
@@ -145,30 +145,30 @@ void Crain::example_code()
         }
         else
         {
-            crain.left_right(dist);
+            left_right(dist);
         }
     }
     
     //"""DOWN"""
-    crain.up_down(100);
+    up_down(350);
     
     //"""GRAB(CLOSE)"""
-    //crain.open_close(50);
+    open_close(50);
     
     //"""UP"""
-    crain.up_down(0);
+    up_down(0);
     
     //"""MOVE TO FINISH"""
-    crain.left_right(350);
+    left_right(450);
     
     //"""DOWN"""
-    crain.up_down(100);
+    up_down(350);
     
     //"""RELEASE"""
-    //crain.open_close(0);
+    open_close(0);
     
     //"""UP"""
-    crain.up_down(0);
+    up_down(0);
     
     //"""SECOND SCAN"""
     //"""stop when an object is detected"""
@@ -184,30 +184,30 @@ void Crain::example_code()
         }
         else
         {
-            crain.left_right(350 - dist);
+            left_right(450 - dist);
         }
     }
     
     //"""DOWN"""
-    crain.up_down(100);
+    up_down(350);
     
     //"""GRAB(CLOSE)"""
-    //crain.open_close(50);
+    open_close(50);
     
     //"""UP"""
-    crain.up_down(0);
+    up_down(0);
     
     //"""MOVE TO FINISH"""
-    crain.left_right(350);
+    left_right(450);
     
     //"""DOWN"""
-    crain.up_down(100);
+    up_down(350);
     
     //"""RELEASE"""
-    //crain.open(0);
+    open_close(0);
     
     //"""UP"""
-    crain.up_down(0);
+    up_down(0);
     
     //"""THIRD SCAN"""
     //"""stop when an object is detected"""
@@ -223,27 +223,27 @@ void Crain::example_code()
         }
         else
         {
-            crain.left_right(350 - dist);
+            left_right(450 - dist);
         }
     }
     
     //"""DOWN"""
-    crain.up_down(100);
+    up_down(350);
     
     //"""GRAB(CLOSE)"""
-    //crain.open_close(50);
+    open_close(50);
     
     //"""UP"""
-    crain.up_down(0);
+    up_down(0);
     
     //"""MOVE TO FINISH"""
-    crain.left_right(350);
+    left_right(450);
     
     //"""DOWN"""
-    crain.up_down(100);
+    up_down(350);
     
     //"""RELEASE"""
-    //crain.open(0);
+    open_close(0);
 
     a.stop();
     b.stop();
@@ -251,14 +251,12 @@ void Crain::example_code()
 
 void Crain::left_right(int sp)
 {
-    while(abs(c.position()) != abs(sp)) // 왼쪽이 0
-    {
-        b.set_speed_sp(get_speed());
-        b.set_position_sp(sp);// - left + right
-        b.run_to_abs_pos();
-        b.set_stop_action("hold");
-        b.stop();
-    }
+    std::cout << "dd" << std::endl;
+    b.set_speed_sp(get_speed());
+    b.set_position_sp(sp);// - left + right
+    b.run_to_abs_pos();
+    b.set_stop_action("hold");
+    b.stop();
 }
 
 
@@ -275,7 +273,6 @@ void Crain::up_down(int sp)
 }
 
 
-/*
 void Crain::open_close(int sp)
 {
     while( (abs(c.position()) <= (sp - 20))  || (abs(c.position()) >= (sp + 20)) )// 열린게 0
@@ -287,7 +284,7 @@ void Crain::open_close(int sp)
         c.stop();
     }
 }
-*/
+
 
 int main()
 {     
@@ -296,7 +293,6 @@ int main()
         
         
         if(crain.get_touch_pressed()==true){ 
-            
         crain.example_code(); //This line is for example, you should erase this ex_code in your 'real code' 
   
         }
