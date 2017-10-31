@@ -55,9 +55,24 @@ public:
 
     virtual int  get_speed()
     {
-        return 1000;
+        return 100;
     }
-
+    
+    virtual int a_get_position_sp()
+    {
+        return 100;
+    }
+    
+    virtual int b_get_position_sp()
+    {
+        return 350;
+    }
+    
+    virtual int c_get_position_sp()
+    {
+        return 30;
+    }
+    
     virtual void set_down(bool val)
     {
         m_down = val;
@@ -91,29 +106,64 @@ public:
     {
         m_speed = val;    
     }
+    
 public:
     void example_code();
 };
+/*
+
+void move_left(int val)
+{
+    while(abs(b.position()) != abs(b_get_position_sp()))
+    {
+        b.set_speed_sp(get_speed());
+        b.set_position_sp(-1*val);
+        b.run_to_abs_pos();
+        b.set_stop_action("hold");
+        b.stop();
+    }
+}
+
+*/
+
 
 void Crain::example_code()
 { //This function is for example, you should develop your own logics
-    while(get_escape() == false)
+    set_down(ev3dev::button::down.pressed());
+    set_up(ev3dev::button::up.pressed());
+    set_right(ev3dev::button::right.pressed());
+    set_left(ev3dev::button::left.pressed());
+    set_escape(ev3dev::button::back.pressed());
+    set_enter(ev3dev::button::enter.pressed());
+
+    
+    b.reset();
+    
+    move_left(b_get_position_sp());
+    
+    a.reset();
+        
+    while(abs(a.position()) != abs(a_get_position_sp()))
     {
-        set_down(ev3dev::button::down.pressed());
-        set_up(ev3dev::button::up.pressed());
-        set_right(ev3dev::button::right.pressed());
-        set_left(ev3dev::button::left.pressed());
-        set_escape(ev3dev::button::back.pressed());
-        set_enter(ev3dev::button::enter.pressed());
-        
-        
-        for(int i =0;i<1000;i++){
-            get_up();
-            a.set_speed_sp(-1*get_speed());
-            a.run_forever;
-        }
-        
+        a.set_speed_sp(get_speed());
+        a.set_position_sp(-1*a_get_position_sp());
+        a.run_to_abs_pos();
+        a.set_stop_action("hold");
+        a.stop();
     }
+    
+    
+    c.reset();
+    
+    while(abs(c.position()) != abs(c_get_position_sp()))
+    {
+        c.set_speed_sp(get_speed());
+        c.set_position_sp(-1*c_get_position_sp());
+        c.run_to_abs_pos();
+        c.set_stop_action("hold");
+        c.stop();
+    }
+
     a.stop();
     b.stop();
 }
