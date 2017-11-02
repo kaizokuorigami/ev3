@@ -115,8 +115,8 @@ public:
     
 public:
     void example_code();
-    
     void left_right(int sp);
+    void left_right_FINISH(int sp);
     void up_down(int sp);
     void open_close(int sp);
 };
@@ -131,14 +131,13 @@ void Crain::example_code()
     c.reset();
     
     int count = 0;
-    int dist = 0;
+    int dist = 10;
     
     //"""FIRST SCAN"""
     //"""stop when an object is detected"""
     
-    while((abs(b.position()) < 450) && (count == 0))
+    while((abs(b.position()) < 600) && (count == 0))
     {
-        dist++;
         if((ultra_q.distance_centimeters() > 0) && (ultra_q.distance_centimeters() < 10))
         {
             count++;
@@ -156,16 +155,14 @@ void Crain::example_code()
     up_down(350);
     
     //"""CLOSE"""
-    open_close(110);
+    open_close(120);
     
     //"""UP"""
     up_down(0);
     
-    while(abs(b.position()) < 450)
-    {
-        //"""MOVE TO FINISH"""
-        left_right(1);
-    }
+    //"""MOVE TO FINISH"""
+    left_right_FINISH(600);
+    
     //"""DOWN"""
     up_down(350);
     
@@ -183,17 +180,16 @@ void Crain::example_code()
     
     dist = 0;
     count = 0;
-    
+    dist = 10;
     while((abs(b.position()) > 0) && (count == 0))
     {
-        dist++;
         if((ultra_q.distance_centimeters() > 0) && (ultra_q.distance_centimeters() < 10))
         {
             count++;
         }
         else
         {
-            left_right(450 - dist);
+            left_right((-1) * dist);
         }
     }
     
@@ -204,16 +200,13 @@ void Crain::example_code()
     up_down(350);
     
     //"""GRAB(CLOSE)"""
-    open_close(110);
+    open_close(120);
     
     //"""UP"""
     up_down(0);
     
-    while(abs(b.position()) < 450)
-    {
-        //"""MOVE TO FINISH"""
-        left_right(1);
-    }
+    //"""MOVE TO FINISH"""
+    left_right_FINISH(600);
     
     //"""DOWN"""
     up_down(350);
@@ -232,17 +225,16 @@ void Crain::example_code()
     
     dist = 0;
     count =0;
-    
+    dist = 10;
     while((abs(b.position()) > 0) && (count == 0))
     {
-        dist++;
         if((ultra_q.distance_centimeters() > 0) && (ultra_q.distance_centimeters() < 10))
         {
             count++;
         }
         else
         {
-            left_right(450 - dist);
+            left_right((-1) * dist);
         }
     }
     
@@ -253,16 +245,13 @@ void Crain::example_code()
     up_down(350);
     
     //"""GRAB(CLOSE)"""
-    open_close(110);
+    open_close(120);
     
     //"""UP"""
     up_down(0);
     
-    while(abs(b.position()) < 450)
-    {
-        //"""MOVE TO FINISH"""
-        left_right(1);
-    }
+    //"""MOVE TO FINISH"""
+    left_right_FINISH(600);
     
     //"""DOWN"""
     up_down(350);
@@ -274,11 +263,21 @@ void Crain::example_code()
     b.stop();
 }
 
+
 void Crain::left_right(int sp)
 {
     b.set_speed_sp(get_speed());
-    b.set_position_sp(10);// - left + right
+    b.set_position_sp(sp);// - left + right
     b.run_to_rel_pos();
+    b.set_stop_action("hold");
+    b.stop();
+}
+
+void Crain::left_right_FINISH(int sp)
+{
+    b.set_speed_sp(10);
+    b.set_position_sp(sp);// - left + right
+    b.run_to_abs_pos();
     b.set_stop_action("hold");
     b.stop();
 }
@@ -288,7 +287,7 @@ void Crain::up_down(int sp)
 {
     while( (abs(a.position()) >= (sp + 30)) || (abs(a.position()) <= (sp - 30)) ) //위에가 0
     {
-        a.set_speed_sp(get_speed());
+        a.set_speed_sp(10);
         a.set_position_sp(sp);
         a.run_to_abs_pos();
         a.set_stop_action("hold");
