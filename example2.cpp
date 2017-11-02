@@ -61,7 +61,7 @@ public:
 
     virtual int get_speed()
     {
-        return 100;
+        return 800;
     }
     
     virtual int a_get_position_sp()
@@ -149,11 +149,14 @@ void Crain::example_code()
         }
     }
     
+    //"""OPEN"""
+    open_close(200);
+    
     //"""DOWN"""
     up_down(350);
     
-    //"""GRAB(CLOSE)"""
-    open_close(50);
+    //"""CLOSE"""
+    open_close(0);
     
     //"""UP"""
     up_down(0);
@@ -164,16 +167,20 @@ void Crain::example_code()
     //"""DOWN"""
     up_down(350);
     
-    //"""RELEASE"""
-    open_close(0);
+    //"""OPEN"""
+    open_close(200);
     
     //"""UP"""
     up_down(0);
+    
+    //"""CLOSE"""
+    open_close(0);
     
     //"""SECOND SCAN"""
     //"""stop when an object is detected"""
     
     dist = 0;
+    count = 0;
     
     while((abs(b.position()) > 0) && (count == 0))
     {
@@ -188,11 +195,14 @@ void Crain::example_code()
         }
     }
     
+    //"""OPEN"""
+    open_close(200);
+    
     //"""DOWN"""
     up_down(350);
     
     //"""GRAB(CLOSE)"""
-    open_close(50);
+    open_close(0);
     
     //"""UP"""
     up_down(0);
@@ -203,16 +213,20 @@ void Crain::example_code()
     //"""DOWN"""
     up_down(350);
     
-    //"""RELEASE"""
-    open_close(0);
+    //"""OPEN"""
+    open_close(200);
     
     //"""UP"""
     up_down(0);
+    
+    //"""GRAB(CLOSE)"""
+    open_close(0);
     
     //"""THIRD SCAN"""
     //"""stop when an object is detected"""
     
     dist = 0;
+    count =0;
     
     while((abs(b.position()) > 0) && (count == 0))
     {
@@ -227,11 +241,14 @@ void Crain::example_code()
         }
     }
     
+    //"""OPEN"""
+    open_close(200);
+    
     //"""DOWN"""
     up_down(350);
     
     //"""GRAB(CLOSE)"""
-    open_close(50);
+    open_close(0);
     
     //"""UP"""
     up_down(0);
@@ -242,8 +259,8 @@ void Crain::example_code()
     //"""DOWN"""
     up_down(350);
     
-    //"""RELEASE"""
-    open_close(0);
+    //"""OPEN"""
+    open_close(200);
 
     a.stop();
     b.stop();
@@ -251,7 +268,6 @@ void Crain::example_code()
 
 void Crain::left_right(int sp)
 {
-    std::cout << "dd" << std::endl;
     b.set_speed_sp(get_speed());
     b.set_position_sp(sp);// - left + right
     b.run_to_abs_pos();
@@ -275,7 +291,7 @@ void Crain::up_down(int sp)
 
 void Crain::open_close(int sp)
 {
-    while( (abs(c.position()) <= (sp - 20))  || (abs(c.position()) >= (sp + 20)) )// 열린게 0
+    while( (abs(c.position()) <= (sp - 5))  || (abs(c.position()) >= (sp + 5)) )// 열린게 0
     {
         c.set_speed_sp(get_speed());
         c.set_position_sp(sp);
