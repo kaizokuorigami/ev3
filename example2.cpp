@@ -136,7 +136,7 @@ void Crain::example_code()
     //"""FIRST SCAN"""
     //"""stop when an object is detected"""
     
-    while((abs(b.position()) < 600) && (count == 0))
+    while((abs(b.position()) < 620) && (count == 0))
     {
         if((ultra_q.distance_centimeters() > 0) && (ultra_q.distance_centimeters() < 10))
         {
@@ -156,12 +156,12 @@ void Crain::example_code()
     sleep(0.5);
     
     //"""DOWN"""
-    up_down(370);
+    up_down(390);
     
-    sleep(2);
+    sleep(1);
     
     //"""CLOSE"""
-    open_close(150);
+    open_close(130);
     
     sleep(0.5);
     
@@ -171,7 +171,7 @@ void Crain::example_code()
     sleep(0.5);
     
     //"""MOVE TO FINISH"""
-    left_right_FINISH(600);
+    left_right_FINISH(620);
     
     sleep(2);
     
@@ -193,7 +193,7 @@ void Crain::example_code()
     //"""CLOSE"""
     open_close(0);
     
-    sleep(0.5);
+    sleep(2);
     
     //"""SECOND SCAN"""
     //"""stop when an object is detected"""
@@ -221,12 +221,12 @@ void Crain::example_code()
     sleep(0.5);
     
     //"""DOWN"""
-    up_down(370);
+    up_down(390);
     
-    sleep(2);
+    sleep(1);
     
     //"""GRAB(CLOSE)"""
-    open_close(150);
+    open_close(130);
     
     sleep(0.5);
     
@@ -236,12 +236,12 @@ void Crain::example_code()
     sleep(0.5);
     
     //"""MOVE TO FINISH"""
-    left_right_FINISH(600);
+    left_right_FINISH(620);
     
     sleep(2);
     
     //"""DOWN"""
-    up_down(370);
+    up_down(390);
     
     sleep(0.5);
     
@@ -258,7 +258,7 @@ void Crain::example_code()
     //"""GRAB(CLOSE)"""
     open_close(0);
     
-    sleep(0.5);
+    sleep(2);
     
     //"""THIRD SCAN"""
     //"""stop when an object is detected"""
@@ -282,23 +282,23 @@ void Crain::example_code()
     open_close(55);
     
     //"""DOWN"""
-    up_down(350);
+    up_down(390);
     
-    sleep(2);
+    sleep(1);
     
     //"""GRAB(CLOSE)"""
-    open_close(150);
+    open_close(130);
     
     //"""UP"""
     up_down(0);
     
     //"""MOVE TO FINISH"""
-    left_right_FINISH(600);
+    left_right_FINISH(620);
     
     sleep(2);
     
     //"""DOWN"""
-    up_down(350);
+    up_down(390);
     
     //"""OPEN"""
     open_close(55);
