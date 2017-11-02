@@ -150,13 +150,13 @@ void Crain::example_code()
     }
     
     //"""OPEN"""
-    open_close(200);
+    open_close(150);
     
     //"""DOWN"""
     up_down(350);
     
     //"""CLOSE"""
-    open_close(0);
+    open_close(300);
     
     //"""UP"""
     up_down(0);
@@ -168,7 +168,7 @@ void Crain::example_code()
     up_down(350);
     
     //"""OPEN"""
-    open_close(200);
+    open_close(150);
     
     //"""UP"""
     up_down(0);
@@ -196,13 +196,13 @@ void Crain::example_code()
     }
     
     //"""OPEN"""
-    open_close(200);
+    open_close(150);
     
     //"""DOWN"""
     up_down(350);
     
     //"""GRAB(CLOSE)"""
-    open_close(0);
+    open_close(300);
     
     //"""UP"""
     up_down(0);
@@ -214,7 +214,7 @@ void Crain::example_code()
     up_down(350);
     
     //"""OPEN"""
-    open_close(200);
+    open_close(150);
     
     //"""UP"""
     up_down(0);
@@ -242,13 +242,13 @@ void Crain::example_code()
     }
     
     //"""OPEN"""
-    open_close(200);
+    open_close(150);
     
     //"""DOWN"""
     up_down(350);
     
     //"""GRAB(CLOSE)"""
-    open_close(0);
+    open_close(300);
     
     //"""UP"""
     up_down(0);
@@ -260,7 +260,7 @@ void Crain::example_code()
     up_down(350);
     
     //"""OPEN"""
-    open_close(200);
+    open_close(150);
 
     a.stop();
     b.stop();
@@ -291,10 +291,10 @@ void Crain::up_down(int sp)
 
 void Crain::open_close(int sp)
 {
-    while( (abs(c.position()) <= (sp - 5))  || (abs(c.position()) >= (sp + 5)) )// 열린게 0
+    while( (abs(c.position()) <= (sp - 5))  || (abs(c.position()) >= (sp + 5)) )// 닫힌게 0
     {
         c.set_speed_sp(get_speed());
-        c.set_position_sp(sp);
+        c.set_position_sp(-sp);
         c.run_to_abs_pos();
         c.set_stop_action("hold");
         c.stop();
