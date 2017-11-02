@@ -61,7 +61,7 @@ public:
 
     virtual int get_speed()
     {
-        return 800;
+        return 50;
     }
     
     virtual int a_get_position_sp()
@@ -150,25 +150,27 @@ void Crain::example_code()
     }
     
     //"""OPEN"""
-    open_close(50);
+    open_close(55);
     
     //"""DOWN"""
     up_down(350);
     
     //"""CLOSE"""
-    open_close(130);
+    open_close(110);
     
     //"""UP"""
     up_down(0);
     
-    //"""MOVE TO FINISH"""
-    left_right(450);
-    
+    while(abs(b.position()) < 450)
+    {
+        //"""MOVE TO FINISH"""
+        left_right(1);
+    }
     //"""DOWN"""
     up_down(350);
     
     //"""OPEN"""
-    open_close(50);
+    open_close(55);
     
     //"""UP"""
     up_down(0);
@@ -196,25 +198,28 @@ void Crain::example_code()
     }
     
     //"""OPEN"""
-    open_close(50);
+    open_close(55);
     
     //"""DOWN"""
     up_down(350);
     
     //"""GRAB(CLOSE)"""
-    open_close(130);
+    open_close(110);
     
     //"""UP"""
     up_down(0);
     
-    //"""MOVE TO FINISH"""
-    left_right(450);
+    while(abs(b.position()) < 450)
+    {
+        //"""MOVE TO FINISH"""
+        left_right(1);
+    }
     
     //"""DOWN"""
     up_down(350);
     
     //"""OPEN"""
-    open_close(50);
+    open_close(55);
     
     //"""UP"""
     up_down(0);
@@ -242,25 +247,28 @@ void Crain::example_code()
     }
     
     //"""OPEN"""
-    open_close(50);
+    open_close(55);
     
     //"""DOWN"""
     up_down(350);
     
     //"""GRAB(CLOSE)"""
-    open_close(130);
+    open_close(110);
     
     //"""UP"""
     up_down(0);
     
-    //"""MOVE TO FINISH"""
-    left_right(450);
+    while(abs(b.position()) < 450)
+    {
+        //"""MOVE TO FINISH"""
+        left_right(1);
+    }
     
     //"""DOWN"""
     up_down(350);
     
     //"""OPEN"""
-    open_close(50);
+    open_close(55);
 
     a.stop();
     b.stop();
@@ -269,8 +277,8 @@ void Crain::example_code()
 void Crain::left_right(int sp)
 {
     b.set_speed_sp(get_speed());
-    b.set_position_sp(sp);// - left + right
-    b.run_to_abs_pos();
+    b.set_position_sp(10);// - left + right
+    b.run_to_rel_pos();
     b.set_stop_action("hold");
     b.stop();
 }
