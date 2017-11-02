@@ -66,12 +66,12 @@ public:
     
     virtual int a_get_position_sp()
     {
-        return 100;
+        return 50;
     }
     
     virtual int b_get_position_sp()
     {
-        return 100;
+        return 50;
     }
     
     virtual int c_get_position_sp()
@@ -131,7 +131,7 @@ void Crain::example_code()
     c.reset();
     
     int count = 0;
-    int dist = 10;
+    int dist = 5;
     
     //"""FIRST SCAN"""
     //"""stop when an object is detected"""
@@ -148,39 +148,59 @@ void Crain::example_code()
         }
     }
     
+    sleep(0.5);
+    
     //"""OPEN"""
     open_close(55);
     
+    sleep(0.5);
+    
     //"""DOWN"""
-    up_down(350);
+    up_down(370);
+    
+    sleep(2);
     
     //"""CLOSE"""
-    open_close(120);
+    open_close(150);
+    
+    sleep(0.5);
     
     //"""UP"""
     up_down(0);
+    
+    sleep(0.5);
     
     //"""MOVE TO FINISH"""
     left_right_FINISH(600);
     
+    sleep(2);
+    
     //"""DOWN"""
-    up_down(350);
+    up_down(370);
+    
+    sleep(0.5);
     
     //"""OPEN"""
     open_close(55);
     
+    sleep(0.5);
+    
     //"""UP"""
     up_down(0);
     
+    sleep(0.5);
+    
     //"""CLOSE"""
     open_close(0);
+    
+    sleep(0.5);
     
     //"""SECOND SCAN"""
     //"""stop when an object is detected"""
     
     dist = 0;
     count = 0;
-    dist = 10;
+    dist = 5;
     while((abs(b.position()) > 0) && (count == 0))
     {
         if((ultra_q.distance_centimeters() > 0) && (ultra_q.distance_centimeters() < 10))
@@ -193,39 +213,59 @@ void Crain::example_code()
         }
     }
     
+    sleep(0.5);
+    
     //"""OPEN"""
     open_close(55);
     
+    sleep(0.5);
+    
     //"""DOWN"""
-    up_down(350);
+    up_down(370);
+    
+    sleep(2);
     
     //"""GRAB(CLOSE)"""
-    open_close(120);
+    open_close(150);
+    
+    sleep(0.5);
     
     //"""UP"""
     up_down(0);
+    
+    sleep(0.5);
     
     //"""MOVE TO FINISH"""
     left_right_FINISH(600);
     
+    sleep(2);
+    
     //"""DOWN"""
-    up_down(350);
+    up_down(370);
+    
+    sleep(0.5);
     
     //"""OPEN"""
     open_close(55);
     
+    sleep(0.5);
+    
     //"""UP"""
     up_down(0);
     
+    sleep(0.5);
+    
     //"""GRAB(CLOSE)"""
     open_close(0);
+    
+    sleep(0.5);
     
     //"""THIRD SCAN"""
     //"""stop when an object is detected"""
     
     dist = 0;
     count =0;
-    dist = 10;
+    dist = 5;
     while((abs(b.position()) > 0) && (count == 0))
     {
         if((ultra_q.distance_centimeters() > 0) && (ultra_q.distance_centimeters() < 10))
@@ -244,14 +284,18 @@ void Crain::example_code()
     //"""DOWN"""
     up_down(350);
     
+    sleep(2);
+    
     //"""GRAB(CLOSE)"""
-    open_close(120);
+    open_close(150);
     
     //"""UP"""
     up_down(0);
     
     //"""MOVE TO FINISH"""
     left_right_FINISH(600);
+    
+    sleep(2);
     
     //"""DOWN"""
     up_down(350);
