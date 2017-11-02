@@ -150,13 +150,13 @@ void Crain::example_code()
     }
     
     //"""OPEN"""
-    open_close(150);
+    open_close(50);
     
     //"""DOWN"""
     up_down(350);
     
     //"""CLOSE"""
-    open_close(300);
+    open_close(130);
     
     //"""UP"""
     up_down(0);
@@ -168,7 +168,7 @@ void Crain::example_code()
     up_down(350);
     
     //"""OPEN"""
-    open_close(150);
+    open_close(50);
     
     //"""UP"""
     up_down(0);
@@ -196,13 +196,13 @@ void Crain::example_code()
     }
     
     //"""OPEN"""
-    open_close(150);
+    open_close(50);
     
     //"""DOWN"""
     up_down(350);
     
     //"""GRAB(CLOSE)"""
-    open_close(300);
+    open_close(130);
     
     //"""UP"""
     up_down(0);
@@ -214,7 +214,7 @@ void Crain::example_code()
     up_down(350);
     
     //"""OPEN"""
-    open_close(150);
+    open_close(50);
     
     //"""UP"""
     up_down(0);
@@ -242,13 +242,13 @@ void Crain::example_code()
     }
     
     //"""OPEN"""
-    open_close(150);
+    open_close(50);
     
     //"""DOWN"""
     up_down(350);
     
     //"""GRAB(CLOSE)"""
-    open_close(300);
+    open_close(130);
     
     //"""UP"""
     up_down(0);
@@ -260,7 +260,7 @@ void Crain::example_code()
     up_down(350);
     
     //"""OPEN"""
-    open_close(150);
+    open_close(50);
 
     a.stop();
     b.stop();
