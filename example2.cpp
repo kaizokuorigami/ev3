@@ -12,7 +12,7 @@ private:
     
 public:
     // Hardware Configuration
-    Crain():m_speed(0), touch_q(ev3dev::INPUT_2), a(ev3dev::OUTPUT_B), b(ev3dev::OUTPUT_C), c(ev3dev::OUTPUT_D), ultra_q(ev3dev::INPUT_3)
+    Crain():m_speed(0), touch_q(ev3dev::INPUT_2), a(ev3dev::OUTPUT_B), b(ev3dev::OUTPUT_C), c(ev3dev::OUTPUT_D), ultra_q(ev3dev::INPUT_1)
     {
         
     }
@@ -64,21 +64,6 @@ public:
         return 50;
     }
     
-    virtual int a_get_position_sp()
-    {
-        return 50;
-    }
-    
-    virtual int b_get_position_sp()
-    {
-        return 50;
-    }
-    
-    virtual int c_get_position_sp()
-    {
-        return 50;
-    }
-    
     virtual void set_down(bool val)
     {
         m_down = val;
@@ -114,7 +99,7 @@ public:
     }
     
 public:
-    void example_code();
+    void BlackHand_code();
     void left_right(int sp);
     void left_right_FINISH(int sp);
     void up_down(int sp);
@@ -123,7 +108,7 @@ public:
 
 
 
-void Crain::example_code()
+void Crain::BlackHand_code()
 {
     
     a.reset();
@@ -138,7 +123,7 @@ void Crain::example_code()
     
     while((abs(b.position()) < 620) && (count == 0))
     {
-        if((ultra_q.distance_centimeters() > 0) && (ultra_q.distance_centimeters() < 10))
+        if((ultra_q.distance_centimeters() < 10))
         {
             count++;
         }
@@ -161,14 +146,12 @@ void Crain::example_code()
     sleep(2);
     
     //"""CLOSE"""
-    open_close(130);
+    open_close(150);
     
     sleep(0.5);
     
     //"""UP"""
     up_down(0);
-    
-    sleep(0.5);
     
     //"""MOVE TO FINISH"""
     left_right_FINISH(620);
@@ -188,7 +171,6 @@ void Crain::example_code()
     //"""UP"""
     up_down(0);
     
-    sleep(0.5);
     
     //"""CLOSE"""
     open_close(0);
@@ -201,9 +183,10 @@ void Crain::example_code()
     dist = 0;
     count = 0;
     dist = 5;
+    
     while((abs(b.position()) > 0) && (count == 0))
     {
-        if((ultra_q.distance_centimeters() > 0) && (ultra_q.distance_centimeters() < 10))
+        if((ultra_q.distance_centimeters() < 10))
         {
             count++;
         }
@@ -226,14 +209,12 @@ void Crain::example_code()
     sleep(2);
     
     //"""GRAB(CLOSE)"""
-    open_close(130);
+    open_close(150);
     
     sleep(0.5);
     
     //"""UP"""
     up_down(0);
-    
-    sleep(0.5);
     
     //"""MOVE TO FINISH"""
     left_right_FINISH(620);
@@ -252,8 +233,6 @@ void Crain::example_code()
     
     //"""UP"""
     up_down(0);
-    
-    sleep(0.5);
     
     //"""GRAB(CLOSE)"""
     open_close(0);
@@ -268,7 +247,7 @@ void Crain::example_code()
     dist = 5;
     while((abs(b.position()) > 0) && (count == 0))
     {
-        if((ultra_q.distance_centimeters() > 0) && (ultra_q.distance_centimeters() < 10))
+        if((ultra_q.distance_centimeters() < 10))
         {
             count++;
         }
@@ -287,7 +266,9 @@ void Crain::example_code()
     sleep(2);
     
     //"""GRAB(CLOSE)"""
-    open_close(130);
+    open_close(150);
+    
+    sleep(1);
     
     //"""UP"""
     up_down(0);
@@ -301,7 +282,7 @@ void Crain::example_code()
     up_down(400);
     
     //"""OPEN"""
-    open_close(55);
+//    open_close(55);
 
     a.stop();
     b.stop();
@@ -359,8 +340,10 @@ int main()
     while(true){
         
         
-        if(crain.get_touch_pressed()==true){ 
-        crain.example_code(); //This line is for example, you should erase this ex_code in your 'real code' 
+        if(crain.get_touch_pressed()==true){
+            
+            
+            crain.BlackHand_code(); //This line is for example, you should erase this ex_code in your 'real code' 
   
         }
     }
