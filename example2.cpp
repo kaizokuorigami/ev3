@@ -143,7 +143,7 @@ void Crain::BlackHand_code()
     //"""DOWN"""
     up_down(400);
     
-    sleep(2);
+    sleep(1.5);
     
     //"""CLOSE"""
     open_close(150);
@@ -174,8 +174,6 @@ void Crain::BlackHand_code()
     
     //"""CLOSE"""
     open_close(0);
-    
-    sleep(1);
     
     //"""SECOND SCAN"""
     //"""stop when an object is detected"""
@@ -206,7 +204,7 @@ void Crain::BlackHand_code()
     //"""DOWN"""
     up_down(400);
     
-    sleep(2);
+    sleep(1.5);
     
     //"""GRAB(CLOSE)"""
     open_close(150);
@@ -237,7 +235,6 @@ void Crain::BlackHand_code()
     //"""GRAB(CLOSE)"""
     open_close(0);
     
-    sleep(1);
     
     //"""THIRD SCAN"""
     //"""stop when an object is detected"""
@@ -263,7 +260,7 @@ void Crain::BlackHand_code()
     //"""DOWN"""
     up_down(400);
     
-    sleep(2);
+    sleep(1.5);
     
     //"""GRAB(CLOSE)"""
     open_close(150);
