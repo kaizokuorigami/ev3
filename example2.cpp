@@ -123,7 +123,7 @@ void Crain::BlackHand_code()
     
     while((abs(b.position()) < 620) && (count == 0))
     {
-        if((ultra_q.distance_centimeters() < 10))
+        if((ultra_q.distance_centimeters() < 12))
         {
             count++;
         }
@@ -145,10 +145,10 @@ void Crain::BlackHand_code()
     
     sleep(1.5);
     
-    //"""CLOSE"""
-    open_close(150);
-    
-    sleep(0.5);
+    //"""CLOSE"""///////////////////////////////////////////
+    //open_close(150);
+    c.set_speed_sp(100);
+    c.run_forever();
     
     //"""UP"""
     up_down(0);
@@ -174,6 +174,8 @@ void Crain::BlackHand_code()
     
     //"""CLOSE"""
     open_close(0);
+    
+    sleep(1);
     
     //"""SECOND SCAN"""
     //"""stop when an object is detected"""
@@ -206,10 +208,10 @@ void Crain::BlackHand_code()
     
     sleep(1.5);
     
-    //"""GRAB(CLOSE)"""
-    open_close(150);
-    
-    sleep(0.5);
+    //"""GRAB(CLOSE)"""///////////////////////
+    //open_close(150);
+    c.set_speed_sp(100);
+    c.run_forever();
     
     //"""UP"""
     up_down(0);
@@ -235,6 +237,7 @@ void Crain::BlackHand_code()
     //"""GRAB(CLOSE)"""
     open_close(0);
     
+    sleep(1);
     
     //"""THIRD SCAN"""
     //"""stop when an object is detected"""
@@ -244,7 +247,7 @@ void Crain::BlackHand_code()
     dist = 5;
     while((abs(b.position()) > 0) && (count == 0))
     {
-        if((ultra_q.distance_centimeters() < 10))
+        if((ultra_q.distance_centimeters() < 12))
         {
             count++;
         }
@@ -262,10 +265,10 @@ void Crain::BlackHand_code()
     
     sleep(1.5);
     
-    //"""GRAB(CLOSE)"""
-    open_close(150);
-    
-    sleep(1);
+    //"""GRAB(CLOSE)"""////////////////////////////////////
+    //open_close(150);
+    c.set_speed_sp(100);
+    c.run_forever();
     
     //"""UP"""
     up_down(0);
@@ -297,7 +300,7 @@ void Crain::left_right(int sp)
 
 void Crain::left_right_FINISH(int sp)
 {
-    b.set_speed_sp(10);
+    b.set_speed_sp(20);
     b.set_position_sp(sp);// - left + right
     b.run_to_abs_pos();
     b.set_stop_action("hold");
