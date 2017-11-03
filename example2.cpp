@@ -156,9 +156,9 @@ void Crain::example_code()
     sleep(0.5);
     
     //"""DOWN"""
-    up_down(390);
+    up_down(400);
     
-    sleep(1);
+    sleep(2);
     
     //"""CLOSE"""
     open_close(130);
@@ -173,10 +173,10 @@ void Crain::example_code()
     //"""MOVE TO FINISH"""
     left_right_FINISH(620);
     
-    sleep(2);
+    sleep(1);
     
     //"""DOWN"""
-    up_down(370);
+    up_down(400);
     
     sleep(0.5);
     
@@ -193,7 +193,7 @@ void Crain::example_code()
     //"""CLOSE"""
     open_close(0);
     
-    sleep(2);
+    sleep(1);
     
     //"""SECOND SCAN"""
     //"""stop when an object is detected"""
@@ -221,9 +221,9 @@ void Crain::example_code()
     sleep(0.5);
     
     //"""DOWN"""
-    up_down(390);
+    up_down(400);
     
-    sleep(1);
+    sleep(2);
     
     //"""GRAB(CLOSE)"""
     open_close(130);
@@ -238,10 +238,10 @@ void Crain::example_code()
     //"""MOVE TO FINISH"""
     left_right_FINISH(620);
     
-    sleep(2);
+    sleep(1);
     
     //"""DOWN"""
-    up_down(390);
+    up_down(400);
     
     sleep(0.5);
     
@@ -258,7 +258,7 @@ void Crain::example_code()
     //"""GRAB(CLOSE)"""
     open_close(0);
     
-    sleep(2);
+    sleep(1);
     
     //"""THIRD SCAN"""
     //"""stop when an object is detected"""
@@ -282,9 +282,9 @@ void Crain::example_code()
     open_close(55);
     
     //"""DOWN"""
-    up_down(390);
+    up_down(400);
     
-    sleep(1);
+    sleep(2);
     
     //"""GRAB(CLOSE)"""
     open_close(130);
@@ -295,10 +295,10 @@ void Crain::example_code()
     //"""MOVE TO FINISH"""
     left_right_FINISH(620);
     
-    sleep(2);
+    sleep(1);
     
     //"""DOWN"""
-    up_down(390);
+    up_down(400);
     
     //"""OPEN"""
     open_close(55);
