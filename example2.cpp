@@ -118,6 +118,14 @@ void Crain::BlackHand_code()
     int count = 0;
     int dist = 5;
     
+    
+    up_down(200);
+    sleep(1.5);
+    
+    a.reset();
+    
+    
+    
     //"""FIRST SCAN"""
     //"""stop when an object is detected"""
     
@@ -141,14 +149,16 @@ void Crain::BlackHand_code()
     sleep(0.5);
     
     //"""DOWN"""
-    up_down(400);
+    up_down(200);
     
     sleep(1.5);
     
     //"""CLOSE"""///////////////////////////////////////////
-    //open_close(150);
+    //open_close(130);
     c.set_speed_sp(100);
     c.run_forever();
+    
+    sleep(1);
     
     //"""UP"""
     up_down(0);
@@ -159,7 +169,7 @@ void Crain::BlackHand_code()
     sleep(1);
     
     //"""DOWN"""
-    up_down(400);
+    up_down(200);
     
     sleep(0.5);
     
@@ -204,14 +214,16 @@ void Crain::BlackHand_code()
     sleep(0.5);
     
     //"""DOWN"""
-    up_down(400);
+    up_down(200);
     
     sleep(1.5);
     
     //"""GRAB(CLOSE)"""///////////////////////
-    //open_close(150);
+    //open_close(130);
     c.set_speed_sp(100);
     c.run_forever();
+    
+    sleep(1);
     
     //"""UP"""
     up_down(0);
@@ -222,7 +234,7 @@ void Crain::BlackHand_code()
     sleep(1);
     
     //"""DOWN"""
-    up_down(400);
+    up_down(200);
     
     sleep(0.5);
     
@@ -261,14 +273,16 @@ void Crain::BlackHand_code()
     open_close(55);
     
     //"""DOWN"""
-    up_down(400);
+    up_down(200);
     
     sleep(1.5);
     
     //"""GRAB(CLOSE)"""////////////////////////////////////
-    //open_close(150);
+    //open_close(130);
     c.set_speed_sp(100);
     c.run_forever();
+    
+    sleep(1);
     
     //"""UP"""
     up_down(0);
@@ -279,10 +293,10 @@ void Crain::BlackHand_code()
     sleep(1);
     
     //"""DOWN"""
-    up_down(400);
+    up_down(200);
     
     //"""OPEN"""
-//    open_close(55);
+    open_close(55);
 
     a.stop();
     b.stop();
