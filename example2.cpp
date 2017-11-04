@@ -120,11 +120,9 @@ void Crain::BlackHand_code()
     
     
     up_down(150);
-    sleep(1.5);
+    sleep(1);
     
     a.reset();
-    
-    
     
     //"""FIRST SCAN"""
     //"""stop when an object is detected"""
@@ -151,7 +149,7 @@ void Crain::BlackHand_code()
     //"""DOWN"""
     up_down(250);
     
-    sleep(1.2);
+    sleep(0.7);
     
     //"""CLOSE"""///////////////////////////////////////////
     //open_close(130);
@@ -212,7 +210,7 @@ void Crain::BlackHand_code()
     //"""DOWN"""
     up_down(250);
     
-    sleep(1.2);
+    sleep(0.7);
     
     //"""GRAB(CLOSE)"""///////////////////////
     //open_close(130);
@@ -268,7 +266,7 @@ void Crain::BlackHand_code()
     //"""DOWN"""
     up_down(250);
     
-    sleep(1.2);
+    sleep(0.7);
     
     //"""GRAB(CLOSE)"""////////////////////////////////////
     //open_close(130);
@@ -298,7 +296,7 @@ void Crain::BlackHand_code()
 
 void Crain::left_right(int sp)
 {
-    b.set_speed_sp(get_speed());
+    b.set_speed_sp(100);
     b.set_position_sp(sp);// - left + right
     b.run_to_rel_pos();
     b.set_stop_action("hold");
@@ -307,7 +305,7 @@ void Crain::left_right(int sp)
 
 void Crain::left_right_FINISH(int sp)
 {
-    b.set_speed_sp(20);
+    b.set_speed_sp(150);
     b.set_position_sp(sp);// - left + right
     b.run_to_abs_pos();
     b.set_stop_action("hold");
